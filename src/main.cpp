@@ -6,8 +6,8 @@
 
 using namespace std;
 
-void displayFunction();
-void initialize();
+void display();
+void setup();
 
 int main (int argc, char** argv) {
     glutInit(&argc, argv);
@@ -16,13 +16,13 @@ int main (int argc, char** argv) {
     glutInitWindowSize(1280,720);
     glutInitDisplayMode(GLUT_SINGLE | GLUT_RGB);
 
-    initialize();
+    setup();
 
-    glutDisplayFunc(displayFunction);
+    glutDisplayFunc(display);
     glutMainLoop();
 }
 
-void mkDrawCircle() {
+void mkCircle() {
     double theta;
     glBegin(GL_POLYGON);
         for (int i = 0; i < 360; i++) {
@@ -32,15 +32,20 @@ void mkDrawCircle() {
     glEnd();
 }
 
-void displayFunction() {
+void mkRectangle() {
+    glColor3f(1.0,1.0,0.0);
+    glRecti(200,100,50,250);
+}
+
+void display() {
     glClear(GL_COLOR_BUFFER_BIT);
     glColor3f(1.0,0.0,0.0);
-    mkDrawCircle();
+    mkRectangle();
     glFlush();
 }
 
-void initialize() {
-    glClearColor(0.5, 1.0, 1.0,0.0);
+void setup() {
+    glClearColor(1, 5.0, 5.0,0.0);
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
     gluOrtho2D(0.0,1280.0,720.0,0.0);
