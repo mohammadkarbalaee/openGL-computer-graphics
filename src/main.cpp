@@ -45,6 +45,7 @@ void display() {
 }
 
 void setup() {
+    typedef GLint vertex3[3];
     glClearColor(1, 5.0, 5.0,0.0);
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
